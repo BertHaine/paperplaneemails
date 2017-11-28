@@ -1,0 +1,18 @@
+/*
+  @tab Big button
+  @section Button
+*/ .bigbutton td.bigbutton__link {
+  /* @editable */ background-color: blue !important;
+  /* @editable */ background-image: none !important;
+  /* @editable */ border-radius: 6px !important;
+}
+
+/*
+  @tab Big button
+  @section Text
+*/ td.bigbutton__link .text.text-bold.text-white {
+  /* @editable */ color: #ffffff !important;
+  /* @editable */ font-size: 17px !important;
+  /* @editable */ line-height: 25px !important;
+  /* @editable */ font-family: "Helvetica", arial !important;
+}

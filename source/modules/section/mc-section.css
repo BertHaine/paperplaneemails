@@ -1,0 +1,32 @@
+.news-item__image img {
+  width: 100% !important;
+}
+
+/*
+  @tab Section colors
+  @section Layout
+*/ .section {
+  /* @editable */ background-color: #ffffff !important;
+}
+
+/*
+  @tab Section colors
+  @section Content
+*/ .section__content {
+  /* @editable */ background-color: #fff !important;
+}
+
+/*
+  @tab Section colors
+  @section Title
+*/ .section__title {
+  /* @editable */ border-bottom: 1px solid #ebebeb !important;
+}
+
+/*
+  @tab Section colors
+  @section Links
+*/ .section__title {
+  /* @editable */ border-left: 1px solid #ebebeb !important;
+  /* @editable */ border-bottom: 1px solid #ebebeb !important;
+}

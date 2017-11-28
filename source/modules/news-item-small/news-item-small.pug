@@ -1,0 +1,29 @@
+
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin news-item-small(options)
+
+  //- Styles of the module
+  if PROD
+    style: include:stylus news-item-small.styl
+
+
+
+  +space(1)
+  //~~// news-item-small module start \~~
+  //———————————————————————————————————————————————
+  +table("100%"): tr
+    td.news-item-small&attributes(attributes)
+      a(href=options.link): +table("100%"): tr
+        td.news-item-small__image
+          +image({src: options.image, alt: options.title, width: "90"})
+
+        td.news-item-small__description
+          a(href="#news-more")
+            +text(options.description)
+          
+  //———————————————————————————————————————————————
+  //~~\ news-item-small module end   //~~
+  +space(1)
+

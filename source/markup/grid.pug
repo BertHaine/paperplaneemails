@@ -1,0 +1,117 @@
+//- MIXIN table
+  simple table wrapper with zero vaues
+
+mixin table(width)
+  table(cellpadding="0" cellspacing="0" border="0" width=`${width ? width : "100%"}`)&attributes(attributes)
+    if block
+      block
+
+
+
+
+//- MIXIN rowgap
+  vertical space gap based on line-height and zero font size
+  ~~
+  @param {number} height - height of gap
+
+  @example:
+    +rowgap(48)
+    +rowgap(60)
+
+mixin rowgap(height, mobileHeight)
+  include utils
+
+  if ESType === "mailchimp"
+    - attributes["mc:edit"] = `rowgap_${height}_${randStr()}`
+
+  if mobileHeight
+    div&attributes(attributes)
+      +table()
+        tr.rowgap:        td(style=`font-size: ${height}px; line-height: 1;`) &nbsp;
+        tr.rowgap-mobile: td(style=`font-size: ${mobileHeight}px; line-height: 1;`) &nbsp;
+
+  else
+    div&attributes(attributes)
+      +table()
+        tr: td(style=`text-decoration: none !important; font-size: ${height}px; line-height: 1;`) &nbsp;
+
+
+mixin colgap(width)
+  td(width=width)&attributes(attributes)
+
+
+
+//- MIXIN container
+  creates styled table layout. Columns (col-1, col-2, col-3) are TDs
+  ~~
+  @param {string} className - additional class of container for special features
+
+  @example:
+    +container()
+      +col-1()
+        ...some content
+        
+    +container("bg-red")
+      +col-1()
+        ...some content
+
+mixin container(className)
+  div(class=`container ${className || ""}` width="600")
+    table.container__table(cellpadding="0" cellspacing="0" border="0" width="100%")&attributes(attributes)
+      tr
+        if block
+          block
+
+
+
+
+//- MIXIN col-1
+  1-column table cell
+  ~~
+  @example:
+    +container()
+      +col-1()
+        ...content
+
+mixin col-1()
+  th.col-1&attributes(attributes)
+    if block
+      block
+
+
+
+
+//- MIXIN col-2
+  2-column table cell
+  ~~
+  @example:
+    +container(2)
+      +col-2()
+        ...content
+      +col-2()
+        ...content
+
+mixin col-2()
+  th.col-2&attributes(attributes)
+    if block
+      block
+
+
+
+
+//- MIXIN col-3
+  3-column table cell
+  ~~
+  @example:
+    +container(3)
+      +col-3()
+        ...content
+      +col-3()
+        ...content
+      +col-3()
+        ...content
+
+mixin col-3()
+  th.col-3&attributes(attributes)
+    if block
+      block

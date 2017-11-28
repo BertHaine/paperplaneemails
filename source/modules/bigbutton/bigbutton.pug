@@ -1,0 +1,27 @@
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin bigbutton(options)
+  if PROD
+    style: include:stylus bigbutton.styl
+
+  +space(1)
+  //~~// bigbutton module start \~~
+  //———————————————————————————————————————————————
+  +container("wide")
+    +col-1()
+      +table("100%"): tr
+        td.bigbutton
+          +table("100%"): tr
+            td.bigbutton__link.bg-blue
+              +rowgap(18)
+              a(href= options.url)
+                +text(options.text).text.text-bold.text-white
+              +rowgap(18)
+
+  +rowgap(30)
+
+  //———————————————————————————————————————————————
+  //~~\ bigbutton module end   //~~
+  +space(1)
+
